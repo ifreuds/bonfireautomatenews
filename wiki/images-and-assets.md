@@ -13,6 +13,19 @@
 Bucket config: public **read**, images-only MIME, 5 MB cap.
 ⚠️ Upload currently uses a **contained public-write policy** with the publishable key. Production should switch to the **`service_role` key** and service-only writes.
 
+## Per-story images (live since 2026-07-02)
+**Every story gets its own hero image**, not just the top story. Verified on the 2 July issue: **7/7 stories had a usable `og:image`**. The pipeline fetches, downloads and re-hosts one per story (`top`, `s2`, `s3`, …). If a story has no `og:image` (or the site 403s), the image is **omitted** and the template renders a clean text-only card — never a broken image.
+
+## Normalization: Supabase image transforms (no tooling needed)
+Raw source images are wildly inconsistent (JPEG/PNG/WebP, 59 KB–625 KB, 934×557 next to 1289×720). We **never resize on upload**. The app crops on the fly via Supabase's render endpoint — swap `/object/public/` for `/render/image/public/` and add params:
+
+```
+?width=1200&height=675&resize=cover&quality=78   → hero
+?width=320&height=180&resize=cover&quality=76    → thumbnail
+?width=600&height=338&resize=cover&quality=75    → email
+```
+Exact 16:9 cover crops, and **auto-WebP** for browsers. Measured: a 625 KB source PNG → **56 KB hero**, **18 KB thumbnail**. Helper lives in `site/lib/render-issue.js` (`img()`).
+
 ## Per-channel variants (planned)
 One canonical image → sized variants per destination, stored on the `assets` row:
 

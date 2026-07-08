@@ -35,6 +35,14 @@ AI (scheduled) → research → draft JSON+HTML → write Supabase → curl /api
                                      public site reads Supabase and renders
 ```
 
+## The AI no longer writes HTML (games, since 2026-07-02)
+It used to hand-write `content_html` every run — which meant the **layout was only ever as consistent as the model's last mood.** Now the games pipeline emits **structured data only** (`content_json`), and the app renders it through a template: `site/lib/render-issue.js`.
+
+Per-story card: hero/thumbnail · linked headline · short summary · unlabelled italic take · source · date.
+Top story gets a full-width hero; the rest get thumbnails. Missing image → clean text-only card.
+
+**The layout now lives in the app, owned by the design team — not in the prompt.** `content_html` remains only as a fallback for legacy issues (and for the cloud newsletter, which still uses it).
+
 **Today's problem:** the AI is *author **and** publisher*. It writes straight to the DB and fires Lark itself. No human gate. That's what the approval platform changes.
 
 ## Live
