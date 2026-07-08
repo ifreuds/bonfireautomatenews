@@ -4,25 +4,8 @@ node_modules
 .env.local
 .vercel
 
-# --- CONTAINS LIVE SECRETS — never commit (public repo) ---
-# Old Cowork handoff guides; hold the real NOTIFY_SECRET + live Lark webhook URL.
-# Superseded by wiki/ + MVP_Approval_Platform_Spec.md. Redact or delete them.
-DEPLOY_STEPS.md
-DEPLOY_STEPS_WEB.md
-
 # --- scratch / temp ---
 _pipeline_tmp/
 
-# --- stray artifacts, not part of the project ---
+# --- build / upload artifacts ---
 *.zip
-ziH387dZ
-issue_2026-06-24.html
-issue_2026-06-24.json
-
-# --- STALE DUPLICATE of site/ ---
-# An older copy of the Next.js app (predates the /games routes).
-# Left on disk, deliberately NOT tracked. Safe to delete — see wiki/decisions-log.md
-/app/
-/lib/
-/next.config.js
-/package.json
