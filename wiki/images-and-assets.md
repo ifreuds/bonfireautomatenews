@@ -56,7 +56,7 @@ One canonical image → sized variants per destination, stored on the `assets` r
 - Auto-skipping agency-credited images (Getty/Reuters/AFP/AP)
 
 **Takedown contact (added 2026-07-08):** `hello@bonfiregathering.com`, rendered as a `mailto:` with subject `Image removal request`. Set in `CONTACT_EMAIL` at the top of `site/lib/render-issue.js`. Domain verified: Google Workspace MX + live site.
-⚠️ **The alias must exist and be monitored.** An unread takedown inbox is worse than none — the rightsholder emails, hears nothing, and escalates.
+✅ **Confirmed real and monitored** by the user (2026-07-08). This matters: an unread takedown inbox is worse than none — the rightsholder emails, hears nothing, and escalates. Tip: filter on the subject `Image removal request`.
 
 Note: *"All rights reserved"* is **not** a substitute. That asserts Bonfire's copyright over *its own* writing; it says nothing about third-party photos. Different sentence, different problem.
 
