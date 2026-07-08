@@ -14,10 +14,14 @@ const ACCENT = '#e8633a';
 /**
  * Standing rights + takedown notice. Site-level, not per-issue content —
  * so it appears on every issue regardless of what the pipeline wrote.
- * Pass `contactEmail` to turn it into an actionable mailto link.
+ *
+ * CONTACT_EMAIL must be a real, MONITORED inbox. An unread takedown address is
+ * worse than none: the rightsholder emails, hears nothing, and escalates.
  */
+const CONTACT_EMAIL = 'hello@bonfiregathering.com';
+
 const RIGHTS_NOTICE =
-  'Images are reproduced for editorial commentary with attribution and remain the property of their respective owners. Every headline links to the original article. If you own an image and would like it removed, contact us and we will take it down promptly.';
+  'Images are reproduced for editorial commentary with attribution and remain the property of their respective owners. Every headline links to the original article.';
 
 /** Supabase image transform: exact cover crop, auto-WebP for browsers. */
 export function img(url, w, h, q = 76) {
@@ -98,7 +102,7 @@ function StoryCard({ story }) {
   );
 }
 
-export default function IssueBody({ issue, kicker = '🎮 BONFIRE SEA GAMES DAILY', dateLabel, contactEmail = null }) {
+export default function IssueBody({ issue, kicker = '🎮 BONFIRE SEA GAMES DAILY', dateLabel, contactEmail = CONTACT_EMAIL }) {
   if (!issue) return null;
   const { intro, top_story: top, sections = [], footer } = issue;
 
@@ -129,10 +133,16 @@ export default function IssueBody({ issue, kicker = '🎮 BONFIRE SEA GAMES DAIL
             <p style={{ fontSize: 13, color: ACCENT, fontWeight: 600, margin: '0 0 10px' }}>{footer.cta}</p>
             <p style={{ fontSize: 11, color: '#888', margin: 0 }}>{footer.sources_note}</p>
             <p style={{ fontSize: 10.5, lineHeight: 1.5, color: '#6f6f78', margin: '10px 0 0', borderTop: '1px solid #2a2a3e', paddingTop: 10 }}>
-              {RIGHTS_NOTICE}
+              {RIGHTS_NOTICE}{' '}
               {contactEmail ? (
-                <> <a href={`mailto:${contactEmail}`} style={{ color: '#9a9aa2' }}>{contactEmail}</a></>
-              ) : null}
+                <>
+                  If you own an image and would like it removed, contact{' '}
+                  <a href={`mailto:${contactEmail}?subject=Image%20removal%20request`} style={{ color: '#9a9aa2' }}>{contactEmail}</a>
+                  {' '}and we will take it down promptly.
+                </>
+              ) : (
+                <>If you own an image and would like it removed, contact us and we will take it down promptly.</>
+              )}
             </p>
           </div>
         )}

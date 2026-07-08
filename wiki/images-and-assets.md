@@ -55,7 +55,12 @@ One canonical image → sized variants per destination, stored on the `assets` r
 - Password-gating the site (would make the "internal use" argument actually true)
 - Auto-skipping agency-credited images (Getty/Reuters/AFP/AP)
 
-**Still open:** a real takedown **contact address** — the notice currently has no mailto (pass `contactEmail` to `IssueBody`). And the step-change in exposure is the **first external email blast**, not the website — worth a lawyer's 20 minutes before then.
+**Takedown contact (added 2026-07-08):** `hello@bonfiregathering.com`, rendered as a `mailto:` with subject `Image removal request`. Set in `CONTACT_EMAIL` at the top of `site/lib/render-issue.js`. Domain verified: Google Workspace MX + live site.
+⚠️ **The alias must exist and be monitored.** An unread takedown inbox is worse than none — the rightsholder emails, hears nothing, and escalates.
+
+Note: *"All rights reserved"* is **not** a substitute. That asserts Bonfire's copyright over *its own* writing; it says nothing about third-party photos. Different sentence, different problem.
+
+**Still open:** the step-change in exposure is the **first external email blast**, not the website — worth a lawyer's 20 minutes before then.
 
 *(Avoid AI-generating images of real news events — misleading for a neutral-news product.)*
 
