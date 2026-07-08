@@ -2,6 +2,12 @@
 
 Append-only. Newest first. Every settled decision, dated.
 
+## 2026-07-02 (later)
+- **Clickable skeleton shipped** at `/admin` — review queue, article editor with per-channel tabs (Web/Lark/Email/Line/WeChat), channel manager, brief & sources, distribution log, stub login. Browser-only (localStorage), seeded with the real 2 July games article + 2 mock drafts. No DB, no real sends, webhook destinations masked. Code: `site/app/admin/*`, `site/lib/skeleton-*.js`.
+- ⚠️ `/admin` is **publicly reachable** (mock data + fake login). Gate it or remove it before the site is shared widely.
+- **Root README replaced** with a project-level README (was a copy of `site/README.md`).
+- Deleted files cleanup completed (see below).
+
 ## 2026-07-02
 - **Single repo created:** https://github.com/ifreuds/bonfireautomatenews (public, `main`). Contains `site/` + `pipeline/` + `wiki/` + `CLAUDE.md` + docs. Deliberately excluded: the stale root duplicate of `site/`, and `DEPLOY_STEPS*.md`.
 - **Secret hygiene:** the pipeline prompts contain `NOTIFY_SECRET`; committed copies are **redacted** to `${NOTIFY_SECRET}`. Verified against committed objects that no secret or live webhook reached the public repo.

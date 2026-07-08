@@ -15,7 +15,9 @@
 ## Deliverables
 1. **A working newsletter** — live site + Lark card, daily. *(done)*
 2. **The design document** — `MVP_Approval_Platform_Spec.md`. *(done)*
-3. **A clickable unstyled skeleton** of the approval app, for the design team to style. *(remaining)*
+3. **A clickable unstyled skeleton** of the approval app, for the design team to style. *(done — `/admin`)*
+
+All three delivered. Everything from here is turning the skeleton into the real app (auth, MCP server, live senders).
 
 Design (company CI) is deliberately the **last leg** — the skeleton is functional and unstyled on purpose.
 
