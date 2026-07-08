@@ -38,10 +38,24 @@ One canonical image → sized variants per destination, stored on the `assets` r
 | Lark (card) | cannot hotlink — needs `img_key` upload via a full Lark app, or the image lives on the linked page |
 | WeChat Official Account | must upload to WeChat's media library; external links blocked |
 
-## Open risk: rights
-Re-hosting publishers' images has **copyright / ToS exposure**, and it grows once we push to email and broadcast channels. Decide before launch:
-- source thumbnail + attribution (current, common practice, not risk-free), or
-- licensed / generated images.
+## Rights — decided 2026-07-08 (with known residual risk)
+
+**Decision:** keep pulling `og:image` from the source article, re-host it, credit the outlet, and link every headline back to the original. A **standing rights + takedown notice** now renders in the footer of every issue (hard-coded in `site/lib/render-issue.js`, so it can't be omitted by the pipeline).
+
+**What genuinely supports this:** publishers emit `og:image` *precisely so third parties can display it beside a link back* — its designed purpose. Thumbnail size, editorial commentary, attribution and a link all cut the same way.
+
+**Residual risk, accepted knowingly:**
+- **Attribution is not a licence.** Crediting the outlet does not transfer permission.
+- The "internal / non-commercial" argument **does not describe what is deployed**: the site is public (no login), the audience is customers + partners, and the footer carries a commercial CTA.
+- We **re-host a copy** (a reproduction) rather than hotlink. Re-hosting is what buys reliability *and* the on-the-fly crop — Supabase can only transform files in our own storage. Considered and kept.
+- Some `og:image`s are **agency photos** (Getty / Reuters / AFP / AP) licensed to that outlet only; agencies actively enforce.
+- "Fair use" is a **US** doctrine. Singapore/Malaysia have fair dealing; Indonesia, Vietnam and Thailand differ. Don't assume US rules for a SEA-facing publication.
+
+**Mitigations offered and DECLINED for now (2026-07-08):**
+- Password-gating the site (would make the "internal use" argument actually true)
+- Auto-skipping agency-credited images (Getty/Reuters/AFP/AP)
+
+**Still open:** a real takedown **contact address** — the notice currently has no mailto (pass `contactEmail` to `IssueBody`). And the step-change in exposure is the **first external email blast**, not the website — worth a lawyer's 20 minutes before then.
 
 *(Avoid AI-generating images of real news events — misleading for a neutral-news product.)*
 

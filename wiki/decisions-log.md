@@ -2,6 +2,12 @@
 
 Append-only. Newest first. Every settled decision, dated.
 
+## 2026-07-08
+- **Per-story images + app-side rendering shipped (games).** The AI no longer writes HTML — it emits `content_json` only and the app renders via `site/lib/render-issue.js`. Card = hero/thumbnail · linked headline · summary · unlabelled italic take · source · date. Top story hero, rest thumbnails, missing image → clean text-only card. Verified 7/7 stories in the 2 July issue had a usable `og:image`.
+- **Image normalization via Supabase transforms** (`/render/image/public/?width=…&resize=cover`): exact 16:9 crops + auto-WebP, no tooling. 625 KB source PNG → 56 KB hero / 18 KB thumb. Upload originals; never resize on ingest.
+- **Image rights:** keep source images with attribution + link-back; **standing takedown notice** added to every issue footer. **Declined for now:** password-gating the site, auto-skipping agency (Getty/Reuters/AFP/AP) photos. Residual exposure accepted — see [images-and-assets](images-and-assets.md). Needs a real takedown contact address.
+- **Cloud newsletter NOT migrated** — still hand-writes HTML. Its `content_json` is already the right shape (verified), so migration is small when wanted.
+
 ## 2026-07-02 (later)
 - **Clickable skeleton shipped** at `/admin` — review queue, article editor with per-channel tabs (Web/Lark/Email/Line/WeChat), channel manager, brief & sources, distribution log, stub login. Browser-only (localStorage), seeded with the real 2 July games article + 2 mock drafts. No DB, no real sends, webhook destinations masked. Code: `site/app/admin/*`, `site/lib/skeleton-*.js`.
 - ⚠️ `/admin` is **publicly reachable** (mock data + fake login). Gate it or remove it before the site is shared widely.
