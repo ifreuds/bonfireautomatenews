@@ -79,10 +79,15 @@ Right now it runs on a **personal** Supabase + Vercel. To move it to company inf
 | `SITE_BASE_URL` | Your deployed site URL (for links in the Lark card, and the console's send-on-publish) |
 | `ADMIN_TOKEN` | The `admin` token from `api_tokens` — used **server-side only** by the approval console. Never `NEXT_PUBLIC_`. |
 | `ADMIN_PASSWORD` | The password reviewers type to sign in to `/console`. |
+| `AGENT_TOKEN` | The `agent` token from `api_tokens` — used **server-side only** by the `/api/agent-*` endpoints so the AI can submit drafts. Never `NEXT_PUBLIC_`. |
+| `AGENT_SUBMIT_KEY` | *Optional.* If set, `/api/agent-submit` requires it. Leave unset to keep the endpoint open (draft-only, human-gated). |
 
 3. Deploy. The public site works immediately. (Local dev: `cd site && npm install && npm run dev`.)
 
-**The AI worker** connects via the MCP server in `mcp/` — hand `HANDOFF_AI.md` to whoever configures the AI. Its only secret is the `agent` token, kept in `mcp/.token` (gitignored — never commit it).
+**The AI worker** has two ways in, both documented in `HANDOFF_AI.md`:
+- **Stateless HTTP (recommended)** — point any web-capable agent at `<site>/api/agent-brief` and it self-serves: reads the brief, checks `/api/agent-archive`, and POSTs to `/api/agent-submit`. No local setup; the DB token stays server-side in `AGENT_TOKEN`.
+- **Local MCP server** (`mcp/`) — for MCP-native runtimes; its token lives in `mcp/.token` (gitignored — never commit it).
+In both cases the agent can only file a **pending** draft; it cannot publish.
 
 ## 6. Before you go public (known issues — fix these)
 
