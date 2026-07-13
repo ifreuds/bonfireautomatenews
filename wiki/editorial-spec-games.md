@@ -40,6 +40,13 @@ Lede → ★ Top story (with hero image) → themed sections (*Deals & funding �
 
 Each story: linked headline · source · reporting paragraph · **italic strategic read** (no "Why it matters:" label).
 
+## Bilingual — every issue ships EN + CN
+Submit **two** structured objects: `content` (English) and `content_cn` (Chinese), via `submit_draft`.
+- `content_cn` has the **identical structure and keys** as `content`. Translate only the human-readable strings (title, intro, every headline / summary / strategic-read, section themes, footer about/cta/sources_note, image credit).
+- **Do NOT translate or alter** `url`, `source`, `published`, or `image.url` — those stay exactly as in the English version. (Publication names like "BitPinas" stay as-is in `source`; you may localize the `image.credit` label, e.g. "图片来源：BitPinas".)
+- Register: the same Reuters/Economist business voice in Chinese — precise, not machine-literal. Use full-width punctuation（，。：；“”——《》）. Keep company names, game titles in 《》, and figures (US$, %, dates) faithful to the source.
+- The English issue serves at `/games/issue/<date>`; the Chinese at `/games/issue/<date>/cn`. Both render from the same layout.
+
 ## Cadence
 **Weekly is the destination; running daily for now** as a rehearsal (mirrors how the cloud newsletter was proven).
 

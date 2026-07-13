@@ -16,6 +16,14 @@ const NEWSLETTERS = {
     emoji: '🎮',
     note: 'Curated by Bonfire — games publishing & operations across SEA.',
   },
+  // Approval-track games newsletter (MCP pipeline). Reuses the games Lark webhook;
+  // links point at the /games-review pages so it stays separate from the legacy feed.
+  'games-review': {
+    webhookEnv: 'LARK_WEBHOOK_URL_GAMES',
+    pathPrefix: '/games-review/issue/',
+    emoji: '🎮',
+    note: 'Curated by Bonfire — games publishing & operations across SEA.',
+  },
 };
 
 // POST /api/notify-lark
