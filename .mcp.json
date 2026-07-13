@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "bonfire": {
+      "command": "node",
+      "args": ["mcp/bonfire-mcp.mjs"],
+      "env": {
+        "NODE_EXTRA_CA_CERTS": "${NODE_EXTRA_CA_CERTS}"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "issue_date": "2026-07-09",
+  "newsletter": "games",
+  "title": "Bonfire SEA Games Daily — 9 July 2026",
+  "intro": "One story today, and it earns the room. The Philippines' best-known games organisation is closing its publishing arm — and pointing the machine it built at players toward the AI data economy instead. Thin issues are honest issues; we would rather run one story that matters than pad around it.",
+  "top_story": {
+    "headline": "Yield Guild Games shuts its publishing arm — and re-points a Philippine player network at AI data work",
+    "url": "https://bitpinas.com/feature/ygg-play-sunset",
+    "source": "BitPinas",
+    "published": "2026-07-07",
+    "summary": "Yield Guild Games will sunset YGG Play by 1 August, cutting 35 roles and retiring its launchpad, questing platform and the titles LOL Land and Waifu Sweeper, after the unit's revenue — $9m lifetime, peaking at $3m in a single month in October 2025 — slid with the wider crypto market. Co-founder Gabby Dizon framed it as \"a market decision, not a product decision\"; YGG keeps its token, a $20.6m treasury and a four-year runway, while GIGACHADBAT and Ragnarok Breaker stay live under Delabs Games and Planetarium Labs.",
+    "why_it_matters": "What survives here is not the games — it is the network. YGG's durable asset was always the ability to recruit, verify and pay tens of thousands of Filipino players at scale, and re-pointed at AI training work that machine drew 27,000 applications in five days. For anyone sizing up Southeast Asia, the read is that the region's edge was never cheap users but organised, reachable communities — and that infrastructure is now proven, unbundled from any one game, and looking for demand.",
+    "image": {
+      "url": "https://pmspzrmowzuryhdjnoeo.supabase.co/storage/v1/object/public/issue-images/games/2026-07-09/top.png",
+      "credit": "Image: BitPinas"
+    }
+  },
+  "sections": [],
+  "footer": {
+    "about": "About Bonfire — We help games studios and publishers launch and operate across Southeast Asia: localization, distribution, payments, live-ops and market-entry support, hands-on from our in-house team.",
+    "cta": "Looking to launch or scale a title in SEA? Let's talk — no pitch, just a conversation.",
+    "sources_note": "Curated from public reporting. Links go to original sources."
+  }
+}

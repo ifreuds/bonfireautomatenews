@@ -4,6 +4,10 @@ node_modules
 .env.local
 .vercel
 
+# --- MCP server: deps + the agent token (NEVER commit) ---
+mcp/node_modules/
+mcp/.token
+
 # --- scratch / temp ---
 _pipeline_tmp/
 

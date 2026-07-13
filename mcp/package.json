@@ -1,0 +1,10 @@
+{
+  "name": "bonfire-mcp",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing the Bonfire newsletter app to any AI worker.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  }
+}
